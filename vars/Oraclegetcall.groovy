@@ -1,4 +1,4 @@
-call()
+def call()
 {
 
   println "printing from library"
