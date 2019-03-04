@@ -17,6 +17,26 @@ oracleHttpObj.ignoreSSLIssues()
 
 def call()
 {
+  oracleHttpObj.request(Method.GET, ContentType.JSON){ req ->
+    uri.path = "/management/weblogic/latest/edit/appDeployments"
+    headers.'Authorization' = "$BasicAuth"
+    //uri.query = [format:'json']
+    //body = jsonBody
 
+    response.success = { resp, json ->
+        assert resp.status == 200
+        newItemId = json
+        println "$newItemId"
+    }
+    // not logged in response
+    response.'302' = { resp ->
+        throw new Exception("Stopping at item POST: uri: " + uri + "\n" +
+            "   You are not logging in properly. Item will not be created.")
+    }
+    response.failure = { resp, json ->
+      println "failure"
+      println json
+    }
+}
   println "printing from library"
 }
