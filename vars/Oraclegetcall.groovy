@@ -6,17 +6,19 @@ import groovyx.net.http.Method.*
 import net.sf.json.*
 
 
-def oracleHttpObj
-def BasicAuth = 'Basic a2FydGhpY2s6YWRtaW4xMjM='
 
-oracleHttpObj = new HTTPBuilder('https://localhost:9002')
-oracleHttpObj.ignoreSSLIssues()
 
 
 
 
 def call()
 {
+
+  def oracleHttpObj
+  def BasicAuth = 'Basic a2FydGhpY2s6YWRtaW4xMjM='
+
+  oracleHttpObj = new HTTPBuilder('https://localhost:9002')
+  oracleHttpObj.ignoreSSLIssues()
   oracleHttpObj.request(Method.GET, ContentType.JSON){ req ->
     uri.path = "/management/weblogic/latest/edit/appDeployments"
     headers.'Authorization' = "$BasicAuth"
