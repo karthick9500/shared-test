@@ -14,7 +14,7 @@ import net.sf.json.*
 def call()
 {
 script{
-  def response = httpRequest "http://dummy.restapiexample.com/api/v1/employees"
+  def response = httpRequest "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
   println(response)
 }
 
