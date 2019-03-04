@@ -14,35 +14,8 @@ import net.sf.json.*
 def call()
 {
 script{
-  def oracleHttpObj
-  def BasicAuth = 'Basic a2FydGhpY2s6YWRtaW4xMjM='
-
-  def teting = new HTTPBuilder('https://localhost:9002').request(Method.GET, ContentType.JSON){ req ->
-    uri.path = "/management/weblogic/latest/edit/appDeployments"
-    headers.'Authorization' = "$BasicAuth"
-    //uri.query = [format:'json']
-    //body = jsonBody
-
-    response.success = { resp, json ->
-        assert resp.status == 200
-        println "sssssss"
-        newItemId = json
-        println "$newItemId"
-    }
-    // not logged in response
-    response.'302' = { resp ->
-        throw new Exception("Stopping at item POST: uri: " + uri + "\n" +
-            "   You are not logging in properly. Item will not be created.")
-    }
-    response.failure = { resp, json ->
-      println "failure"
-      println json
-    }
-
-
-
-}
-println "$teting"
+  def response = httpRequest "http://dummy.restapiexample.com/api/v1/employees"
+  println(response)
 }
 
 }
