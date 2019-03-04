@@ -28,6 +28,7 @@ def call()
 
     response.success = { resp, json ->
         assert resp.status == 200
+        println "sssssss"
         newItemId = json
         println "$newItemId"
     }
