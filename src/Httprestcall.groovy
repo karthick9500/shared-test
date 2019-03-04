@@ -7,13 +7,9 @@ import net.sf.json.*
 
 
 
+class HttpGet {
 
-
-
-
-def call()
-{
-
-new Httprestcall.HttpGet(script:this).run()
-  println "printing from library"
+    def run() {
+        println "call is from src"
+    }
 }
