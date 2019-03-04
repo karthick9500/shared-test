@@ -42,10 +42,11 @@ try {
       println json
     }
   }
+}
   catch (e) {
     echo 'exception: ' + e
   }
-}
+
   println "printing from library"
 
 }
