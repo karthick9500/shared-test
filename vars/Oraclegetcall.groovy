@@ -26,7 +26,7 @@ def call()
     //uri.query = [format:'json']
     //body = jsonBody
 
-    respons.success = { resp, json ->
+    response.success = { resp, json ->
         assert resp.status == 200
         newItemId = json
         println "$newItemId"
