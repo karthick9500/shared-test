@@ -14,6 +14,6 @@ import net.sf.json.*
 def call()
 {
 
-new Httprestcall.HttpGet(script:this).run()
+new HttpGet(script:this).run()
   println "printing from library"
 }
