@@ -17,7 +17,7 @@ script{
   def oracleHttpObj
   def BasicAuth = 'Basic a2FydGhpY2s6YWRtaW4xMjM='
 
-  new HTTPBuilder('https://localhost:9002').request(Method.GET, ContentType.JSON){ req ->
+  def teting = new HTTPBuilder('https://localhost:9002').request(Method.GET, ContentType.JSON){ req ->
     uri.path = "/management/weblogic/latest/edit/appDeployments"
     headers.'Authorization' = "$BasicAuth"
     //uri.query = [format:'json']
@@ -39,7 +39,7 @@ script{
       println json
     }
 
-  println "printing from library"
+  println "$teting"
 
 }
 }
