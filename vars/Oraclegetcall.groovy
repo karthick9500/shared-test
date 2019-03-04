@@ -17,10 +17,7 @@ script{
   def oracleHttpObj
   def BasicAuth = 'Basic a2FydGhpY2s6YWRtaW4xMjM='
 
-  oracleHttpObj = new HTTPBuilder('https://localhost:9002')
-  oracleHttpObj.ignoreSSLIssues()
-try {
-  oracleHttpObj.request(Method.GET, ContentType.JSON){ req ->
+  new HTTPBuilder('https://localhost:9002').request(Method.GET, ContentType.JSON){ req ->
     uri.path = "/management/weblogic/latest/edit/appDeployments"
     headers.'Authorization' = "$BasicAuth"
     //uri.query = [format:'json']
@@ -41,8 +38,8 @@ try {
       println "failure"
       println json
     }
-  }
-}
+
+
   catch (e) {
     echo 'exception: ' + e
   }
