@@ -39,9 +39,10 @@ script{
       println json
     }
 
-  println "$teting"
+
 
 }
+println "$teting"
 }
 
 }
