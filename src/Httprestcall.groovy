@@ -7,7 +7,7 @@ import net.sf.json.*
 
 
 
-class HttpGet {
+class Httprestcall {
 
     def run() {
         println "call is from src"
