@@ -13,7 +13,7 @@ import net.sf.json.*
 
 def call()
 {
-
+script{
   def oracleHttpObj
   def BasicAuth = 'Basic a2FydGhpY2s6YWRtaW4xMjM='
 
@@ -47,4 +47,6 @@ try {
   }
 }
   println "printing from library"
+
+}
 }
