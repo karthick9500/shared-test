@@ -39,11 +39,6 @@ script{
       println json
     }
 
-
-  catch (e) {
-    echo 'exception: ' + e
-  }
-
   println "printing from library"
 
 }
