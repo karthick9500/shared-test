@@ -18,7 +18,7 @@ script{
   def patchOrg = """
   {"name" : "fairShare-10"}
   """
-  def response = httpRequest ignoreSslErrors: true, customHeaders: [[name: 'X-Requested-By', value: 'MyClient'],[name: 'Content-Type', value: 'application/json']], httpMode: 'POST', requestBody: patchOrg, authentication :'oracle-call', url: "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
+  def response = httpRequest ignoreSslErrors: true, customHeaders: [[name: 'Content-Type', value: 'application/json'],[name: 'Accept', value: 'application/json'],[name: 'X-Requested-By', value: 'MyClient']], httpMode: 'POST', requestBody: patchOrg, authentication :'oracle-call', url: "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
 
 
   println(response.content)
