@@ -14,8 +14,14 @@ import net.sf.json.*
 def call()
 {
 script{
-  def response = httpRequest ignoreSslErrors: true, url: "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
-  println(response)
+
+  def patchOrg = """
+  {"name" : "fairShare-10"}
+  """
+  def response = httpRequest customHeaders: [[name: 'X-Requested-By', value: 'MyClient'],[name: 'Content-Type', value: 'application/json']], httpMode: 'POST', requestBody: patchOrg, authentication :'oracle-call', url: "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
+
+
+  println(response.content)
 }
 
 }
