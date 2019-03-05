@@ -16,7 +16,8 @@ def call()
 script{
 
   def patchOrg = """
-  {"name" : "fairShare-10"}
+  {"name": "deployer",
+  "sourcePath": "/deployments/fairShare.war"}
   """
   def response = httpRequest ignoreSslErrors: true, customHeaders: [[name: 'Content-Type', value: 'application/json'],[name: 'Accept', value: 'application/json'],[name: 'X-Requested-By', value: 'MyClient']], httpMode: 'POST', requestBody: patchOrg, authentication :'oracle-call', url: "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
 
