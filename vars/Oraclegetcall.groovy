@@ -14,7 +14,7 @@ import net.sf.json.*
 def call()
 {
 script{
-  def response = httpRequest ignoreSslErrors: true, "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
+  def response = httpRequest ignoreSslErrors: true, url: "https://localhost:9002/management/weblogic/latest/edit/appDeployments"
   println(response)
 }
 
