@@ -26,3 +26,14 @@ script{
 }
 
 }
+
+
+
+def patchOrg = """
+  {"name": "deployer",
+  "sourcePath": "/u01/data/domains/jcscxaps_domain/servers/jcscxaps_adminserver/upload/hello-world.war/app/hello-world.war",
+  "target": "[ { identity: [ 'clusters', 'jcscxaps_cluster' ] }, { identity: [ 'virtualHosts', 'VirtualHost-JCSSanC' ] } ]"}
+  """
+
+
+"virtualHosts", "VirtualHost-JCSSanC"
